@@ -2,7 +2,9 @@
 
 namespace cs_404_binary_search_tree_analysis.bst
 {
-    internal class BinarySearchTree<NodeData, BalancingAlgo> where BalancingAlgo : BalancingAlgorithm<NodeData>, new() where NodeData : IComparable
+    internal class BinarySearchTree<NodeData, BalancingAlgo> 
+        where BalancingAlgo : BalancingAlgorithm<Node<NodeData>, NodeData>, new() 
+        where NodeData : IComparable
     {
         Node<NodeData> rootNode;
 
@@ -17,17 +19,42 @@ namespace cs_404_binary_search_tree_analysis.bst
 
         public void InsertNode(Node<NodeData> nodeToInsert)
         {
-            
+            if (checkNodeTypeParity(nodeToInsert)) {
+                
+            } else
+            {
+                //TODO: handle
+            }
         }
 
         public void DeleteNode(Node<NodeData> nodeToDelete)
         {
+            if (checkNodeTypeParity(nodeToDelete))
+            {
 
+            }
+            else
+            {
+                //TODO: handle
+            }
         }        
         
         public void SearchForNode(Node<NodeData> nodeToSearchFor)
         {
+            if (checkNodeTypeParity(nodeToSearchFor))
+            {
 
+            }
+            else
+            {
+                //TODO: handle
+            }
+        }
+
+        private bool checkNodeTypeParity(Node<NodeData> nodeToCheck)
+        {
+            if (nodeToCheck.GetType() == rootNode.GetType()) return true;
+            else return false;
         }
     }
 }

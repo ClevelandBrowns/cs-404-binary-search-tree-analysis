@@ -12,7 +12,7 @@ namespace cs_404_binary_search_tree_analysis
         public MainWindow()
         {
             InitializeComponent();
-            new BinarySearchTree<string, AVLBalancing<string>>(new Node<string>());
+            new BinarySearchTree<string, AVLBalancing<string>>();
 
         }
     }
