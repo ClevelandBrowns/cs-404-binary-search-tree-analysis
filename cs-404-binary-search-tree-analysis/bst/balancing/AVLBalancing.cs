@@ -1,12 +1,29 @@
 ﻿
 namespace cs_404_binary_search_tree_analysis.bst.balancing
 {
-    internal class AVLBalancing<NodeData> : BalancingAlgorithm<Node<NodeData>, NodeData> where NodeData : IComparable
+    internal class AVLBalancing<NodeData> : BalancingAlgorithm<AVLNode<NodeData>, NodeData> where NodeData : IComparable
     {
-        public void BalanceTree(Node<NodeData> rootNode)
+        public void BalanceTree(AVLNode<NodeData> nodeThatOperationWasPerformedOn, bool wasDeletion)
         {
-            if (rootNode.GetType() != typeof(AVLNode<string>)) return;
-            throw new NotImplementedException();
+            AVLNode<NodeData> evaluatedNode = nodeThatOperationWasPerformedOn;
+
+            while (evaluatedNode.parent != null)
+            {
+                evaluatedNode.RecalculateHeight();
+                switch (evaluatedNode.CalculateBalanceFactor())
+                {
+                    case > 1:
+                        break;
+                    case < -1:
+                        break;
+                }
+                evaluatedNode = (AVLNode<NodeData>)evaluatedNode.parent;
+            }
+        }
+
+        private void LLRotation()
+        {
+
         }
 
         public Node<NodeData> CreateRootNode(NodeData value)
@@ -14,9 +31,9 @@ namespace cs_404_binary_search_tree_analysis.bst.balancing
             return new AVLNode<NodeData>(value);
         }
 
-        private void RecalculateHeights(AVLNode<NodeData> rootNode)
+        AVLNode<NodeData> BalancingAlgorithm<AVLNode<NodeData>, NodeData>.CreateRootNode(NodeData value)
         {
-
+            return new AVLNode<NodeData>(value);
         }
 
         //private bool checkIfTreeBalanced()

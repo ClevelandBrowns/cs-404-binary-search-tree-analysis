@@ -8,7 +8,6 @@ namespace cs_404_binary_search_tree_analysis.bst
 {
     internal class AVLNode<NodeData> : Node<NodeData>
     {
-        // height is always equal to 
         public int height;
 
         public AVLNode()
@@ -17,7 +16,14 @@ namespace cs_404_binary_search_tree_analysis.bst
 
         internal void RecalculateHeight()
         {
-            height = 1 + (((AVLNode<NodeData>)leftChild).height - ((AVLNode<NodeData>)rightChild).height);
+            if (leftChild == null && rightChild == null) 
+                return;
+            else if(leftChild == null)
+                height = 1 + ((AVLNode<NodeData>)rightChild).height;
+            else if(rightChild == null)
+                height = 1 + ((AVLNode<NodeData>)leftChild).height;
+            else 
+                height = 1 + Math.Max(((AVLNode<NodeData>)leftChild).height, ((AVLNode<NodeData>)rightChild).height);
         }
 
         public AVLNode(NodeData value)
@@ -33,6 +39,11 @@ namespace cs_404_binary_search_tree_analysis.bst
         public override string ToString()
         {
             return base.value.ToString();
+        }
+
+        internal int CalculateBalanceFactor()
+        {
+            return ((AVLNode<NodeData>)leftChild).height - ((AVLNode<NodeData>)rightChild).height;
         }
     }
 }
