@@ -12,6 +12,6 @@ namespace cs_404_binary_search_tree_analysis.bst.balancing
     {
         public void BalanceTree(NodeType rootNode);
 
-        public NodeType CreateRootNode();
+        public NodeType CreateRootNode(NodeData value);
     }
 }

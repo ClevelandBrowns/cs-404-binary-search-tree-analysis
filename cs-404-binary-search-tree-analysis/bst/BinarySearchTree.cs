@@ -1,4 +1,5 @@
-﻿using cs_404_binary_search_tree_analysis.bst.balancing;
+﻿using System.Diagnostics;
+using cs_404_binary_search_tree_analysis.bst.balancing;
 
 namespace cs_404_binary_search_tree_analysis.bst
 {
@@ -6,11 +7,12 @@ namespace cs_404_binary_search_tree_analysis.bst
         where BalancingAlgo : BalancingAlgorithm<Node<NodeData>, NodeData>, new() 
         where NodeData : IComparable
     {
-        Node<NodeData> rootNode;
+        public Node<NodeData> rootNode;
 
-        public BinarySearchTree()
+        public BinarySearchTree(NodeData value)
         {
-            rootNode = new BalancingAlgo().CreateRootNode();
+            rootNode = new BalancingAlgo().CreateRootNode(value);
+            Debug.WriteLine(value.ToString());
         }
 
         protected void BalanceTree() { 

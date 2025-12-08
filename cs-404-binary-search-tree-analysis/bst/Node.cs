@@ -9,9 +9,10 @@ namespace cs_404_binary_search_tree_analysis.bst
 {
     internal abstract class Node<NodeData> : IComparable
     {
-        Node<NodeData> parent;
-        Node<NodeData> leftChild;
-        Node<NodeData> rightChild;
+        protected Node<NodeData>? parent;
+        protected Node<NodeData>? leftChild;
+        protected Node<NodeData>? rightChild;
+        protected NodeData value;
 
         public abstract int CompareTo(object? obj);
     }

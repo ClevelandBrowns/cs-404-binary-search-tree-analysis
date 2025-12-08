@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace cs_404_binary_search_tree_analysis.bst.balancing
 {
-    internal class RedBlackBalancing<NodeData> : BalancingAlgorithm<RedBlackNode<NodeData>, NodeData> where NodeData : IComparable
+    internal class RedBlackBalancing<NodeData> : BalancingAlgorithm<Node<NodeData>, NodeData> where NodeData : IComparable
     {
-        public void BalanceTree(RedBlackNode<NodeData> rootNode)
+        public void BalanceTree(Node<NodeData> rootNode)
         {
             throw new NotImplementedException();
         }
 
-        public RedBlackNode<NodeData> CreateRootNode()
+        public Node<NodeData> CreateRootNode(NodeData value)
         {
-            throw new NotImplementedException();
+            return new RedBlackNode<NodeData>();
         }
     }
 }

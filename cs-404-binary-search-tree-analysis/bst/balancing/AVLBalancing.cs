@@ -5,12 +5,23 @@ namespace cs_404_binary_search_tree_analysis.bst.balancing
     {
         public void BalanceTree(Node<NodeData> rootNode)
         {
+            if (rootNode.GetType() != typeof(AVLNode<string>)) return;
             throw new NotImplementedException();
         }
 
-        public Node<NodeData> CreateRootNode()
+        public Node<NodeData> CreateRootNode(NodeData value)
         {
-            throw new NotImplementedException();
+            return new AVLNode<NodeData>(value);
         }
+
+        private void RecalculateHeights(AVLNode<NodeData> rootNode)
+        {
+
+        }
+
+        //private bool checkIfTreeBalanced()
+        //{
+
+        //}
     }
 }
