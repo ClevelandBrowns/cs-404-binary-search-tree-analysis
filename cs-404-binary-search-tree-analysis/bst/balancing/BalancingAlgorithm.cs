@@ -10,7 +10,7 @@ namespace cs_404_binary_search_tree_analysis.bst.balancing
         where NodeType : Node<NodeData>
         where NodeData : IComparable
     {
-        public void BalanceTree(NodeType rootNode, bool wasDeletion);
+        public NodeType BalanceTree(NodeType rootNode, bool wasDeletion);
 
         public NodeType CreateRootNode(NodeData value);
     }

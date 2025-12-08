@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace cs_404_binary_search_tree_analysis.bst
 {
-    internal abstract class Node<NodeData> : IComparable
+    internal abstract class Node<NodeData> : IComparable where NodeData : IComparable
     {
         internal Node<NodeData>? parent;
         internal Node<NodeData>? leftChild;
