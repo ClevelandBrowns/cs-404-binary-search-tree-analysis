@@ -53,13 +53,12 @@ namespace cs_404_binary_search_tree_analysis.bst
             else return ((AVLNode<NodeData>)leftChild).height - ((AVLNode<NodeData>)rightChild).height;
         }
 
-        internal void CalculateChildBalanceFactors(out int leftChildBF, out int rightChildBF)
+        internal void CalculateChildBalanceFactor(bool isLeftChild, out int childBF)
         {
-            leftChildBF = 0;
-            rightChildBF = 0;
+            childBF = 0;
 
-            if(leftChild != null) leftChildBF = ((AVLNode<NodeData>)leftChild).CalculateBalanceFactor();
-            if(rightChild != null) rightChildBF = ((AVLNode<NodeData>)rightChild).CalculateBalanceFactor();
+            if(isLeftChild && leftChild != null) childBF = ((AVLNode<NodeData>)leftChild).CalculateBalanceFactor();
+            if(!isLeftChild && rightChild != null) childBF = ((AVLNode<NodeData>)rightChild).CalculateBalanceFactor();
         }
     }
 }

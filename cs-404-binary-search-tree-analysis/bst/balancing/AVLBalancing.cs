@@ -24,11 +24,11 @@ namespace cs_404_binary_search_tree_analysis.bst.balancing
             while (evaluatedNode != null)
             {
                 evaluatedNode.RecalculateHeight();
-                evaluatedNode.CalculateChildBalanceFactors(out int rightChildBF, out int leftChildBF);
                 switch (evaluatedNode.CalculateBalanceFactor())
                 {
                     case < -1:
-                        if(rightChildBF <= 0)
+                        evaluatedNode.CalculateChildBalanceFactor(false, out int rightChildBF);
+                        if (rightChildBF <= 0)
                         {
                             evaluatedNode = LeftRotation(evaluatedNode);
                         } else
@@ -37,6 +37,7 @@ namespace cs_404_binary_search_tree_analysis.bst.balancing
                         }
                         break;
                     case > 1:
+                        evaluatedNode.CalculateChildBalanceFactor(true, out int leftChildBF);
                         if (leftChildBF >= 0)
                         {
                             evaluatedNode = RightRotation(evaluatedNode);
@@ -62,6 +63,7 @@ namespace cs_404_binary_search_tree_analysis.bst.balancing
             AVLNode<NodeData> leftChildOfImbalanced = (AVLNode<NodeData>)imbalancedNode.leftChild;
 
             imbalancedNode.leftChild = leftChildOfImbalanced.rightChild;
+            if(imbalancedNode.leftChild != null) imbalancedNode.leftChild.parent = imbalancedNode;
 
             leftChildOfImbalanced.rightChild = imbalancedNode;
 
@@ -71,7 +73,7 @@ namespace cs_404_binary_search_tree_analysis.bst.balancing
 
             if(!wasImbalancedNodeRoot)
             {
-                if (imbalancedNode.parent.leftChild.Equals(imbalancedNode))
+                if (imbalancedNode.parent.leftChild != null && imbalancedNode.parent.leftChild.Equals(imbalancedNode))
                 {
                     imbalancedNode.parent.leftChild = leftChildOfImbalanced;
                 } else {
@@ -93,6 +95,8 @@ namespace cs_404_binary_search_tree_analysis.bst.balancing
             AVLNode<NodeData> rightChildOfImbalanced = (AVLNode<NodeData>)imbalancedNode.rightChild;
 
             imbalancedNode.rightChild = rightChildOfImbalanced.leftChild;
+            if(imbalancedNode.rightChild != null) imbalancedNode.rightChild.parent = imbalancedNode;
+
 
             rightChildOfImbalanced.leftChild = imbalancedNode;
 
