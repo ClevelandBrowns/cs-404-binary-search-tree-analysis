@@ -114,7 +114,6 @@ namespace cs_404_binary_search_tree_analysis.bst.balancing
                 {
                     imbalancedNode.parent.rightChild = rightChildOfImbalanced;
                 }
-
             }
             
             rightChildOfImbalanced.parent = imbalancedNode.parent;

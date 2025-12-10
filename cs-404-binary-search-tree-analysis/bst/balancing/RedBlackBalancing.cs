@@ -15,7 +15,8 @@ namespace cs_404_binary_search_tree_analysis.bst.balancing
 
         RedBlackNode<NodeData> BalancingAlgorithm<RedBlackNode<NodeData>, NodeData>.BalanceTree(RedBlackNode<NodeData> rootNode, bool wasDeletion)
         {
-            throw new NotImplementedException();
+            //after adding, go up through tree and see 
+            return null;
         }
     }
 }

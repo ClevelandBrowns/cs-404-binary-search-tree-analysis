@@ -1,8 +1,8 @@
 ﻿using System.Windows;
 using cs_404_binary_search_tree_analysis.bst.balancing;
 using cs_404_binary_search_tree_analysis.bst;
-using System.Diagnostics;
 using System.Text;
+using System.Diagnostics;
 
 namespace cs_404_binary_search_tree_analysis
 {
@@ -40,6 +40,8 @@ namespace cs_404_binary_search_tree_analysis
             }
 
             TextBox.AppendText(sb.ToString());
+
+            Debug.WriteLine(tree.SearchForNode(90));
         }
     }
 }

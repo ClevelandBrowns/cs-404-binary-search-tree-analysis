@@ -47,12 +47,32 @@ namespace cs_404_binary_search_tree_analysis.bst
 
         public void DeleteNode(Node<NodeData> nodeToDelete)
         {
+
  
         }        
         
-        public void SearchForNode(Node<NodeData> nodeToSearchFor)
+        public Node<NodeData> SearchForNode(NodeData nodeValueToSearchFor)
         {
+            Node<NodeData> evaluatedNode = rootNode;
 
+            while(evaluatedNode != null)
+            {
+                if(evaluatedNode.value.Equals(nodeValueToSearchFor)) return evaluatedNode;
+                else if(evaluatedNode.value.CompareTo(nodeValueToSearchFor) == 1 && evaluatedNode.leftChild != null)
+                {
+                    evaluatedNode = evaluatedNode.leftChild;
+                }
+                else if (evaluatedNode.value.CompareTo(nodeValueToSearchFor) == -1 && evaluatedNode.rightChild != null)
+                {
+                    evaluatedNode = evaluatedNode.rightChild;
+                } else
+                {
+                    evaluatedNode = null;
+                }
+
+            }
+
+            return null;
         }
 
         private List<List<string>> recursiveToString(List<List<string>> table, Node<NodeData> searchedNode, int depth = 0)
